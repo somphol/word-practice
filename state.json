@@ -1,0 +1,66 @@
+{
+  "project": "word-practice",
+  "title": "Word Practice — ESL Pronunciation Coach",
+  "description": "A production-ready, browser-native ESL pronunciation coach with 80 curated words across four sound groups, slow text-to-speech playback, and instant microphone feedback.",
+  "stack": [
+    "HTML5",
+    "CSS3",
+    "Vanilla JavaScript",
+    "Web Speech API (SpeechSynthesis + SpeechRecognition)"
+  ],
+  "build": {
+    "startedAt": "2026-10-31T18:06:08.379Z",
+    "completedAt": "2026-10-31T18:16:33.547Z",
+    "durationSeconds": 625.2,
+    "durationHuman": "10m 25s",
+    "timezone": "UTC",
+    "note": "Elapsed time from the OpenCode session's creation to the token snapshot below."
+  },
+  "tokens": {
+    "input": 77705,
+    "output": 33354,
+    "reasoning": 27613,
+    "cacheRead": 2512640,
+    "cacheWrite": 1048,
+    "total": 138672,
+    "totalWithCache": 2652360,
+    "note": "Snapshot from the OpenCode session record taken when the build state was packaged. total = input + output + reasoning. Cache reads and writes are reported separately because they are a subset of context usage. Committing the state files and the final response fall outside this snapshot."
+  },
+  "cost": {
+    "usd": 0.0,
+    "note": "As reported by the OpenCode session record."
+  },
+  "sessionId": "ses_e6cdc100effeUsFm8ov5Bn2BiU",
+  "model": {
+    "name": "DeepSeek V4.1 Flash",
+    "providerID": "opencode-go",
+    "modelID": "deepseek-v4.1-flash"
+  },
+  "harness": {
+    "name": "OpenCode",
+    "version": "2.2.5"
+  },
+  "repository": "https://github.com/somphol/word-practice",
+  "pages": "https://somphol.github.io/word-practice/",
+  "artifacts": [
+    "index.html",
+    "style.css",
+    "script.js",
+    "favicon.svg",
+    "screenshot.png",
+    "README.md",
+    "STATE.md",
+    "state.json",
+    "LICENSE"
+  ],
+  "highlights": [
+    "4 categories with exactly 20 words each",
+    "Native SpeechSynthesisUtterance playback at rate 0.8",
+    "Native SpeechRecognition pronunciation check with heard-text feedback",
+    "Light and dark themes with localStorage persistence",
+    "Responsive layout tested at 390px and 1440px",
+    "Keyboard shortcuts and accessible tab/word navigation",
+    "No build step, no dependencies, no tracking"
+  ],
+  "credits": "Built with OpenCode and DeepSeek V4.1 Flash."
+}
