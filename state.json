@@ -10,21 +10,21 @@
   ],
   "build": {
     "startedAt": "2026-10-31T18:06:08.379Z",
-    "completedAt": "2026-10-31T18:16:33.547Z",
-    "durationSeconds": 625.2,
-    "durationHuman": "10m 25s",
+    "completedAt": "2026-10-31T18:17:50.554Z",
+    "durationSeconds": 702.2,
+    "durationHuman": "11m 42s",
     "timezone": "UTC",
     "note": "Elapsed time from the OpenCode session's creation to the token snapshot below."
   },
   "tokens": {
-    "input": 77705,
-    "output": 33354,
-    "reasoning": 27613,
-    "cacheRead": 2512640,
+    "input": 82526,
+    "output": 35647,
+    "reasoning": 29654,
+    "cacheRead": 2923904,
     "cacheWrite": 1048,
-    "total": 138672,
-    "totalWithCache": 2652360,
-    "note": "Snapshot from the OpenCode session record taken when the build state was packaged. total = input + output + reasoning. Cache reads and writes are reported separately because they are a subset of context usage. Committing the state files and the final response fall outside this snapshot."
+    "total": 147827,
+    "totalWithCache": 3072779,
+    "note": "Snapshot from the OpenCode session record taken at the final packaging pass, after the site was published and verified. total = input + output + reasoning. Cache reads and writes are reported separately because they are a subset of context usage. Updating these state files and the final response fall outside this snapshot."
   },
   "cost": {
     "usd": 0.0,
