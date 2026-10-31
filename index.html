@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Word Practice is a friendly ESL pronunciation coach. Listen to 80 carefully grouped English words, repeat them out loud, and get instant feedback from your browser.">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Word Practice — ESL Pronunciation Coach</title>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    // Apply the saved theme before the stylesheet paints to avoid a flash of the wrong theme.
+    (function () {
+      try {
+        var saved = localStorage.getItem("word-practice.theme");
+        var preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = saved || preferred;
+      } catch (error) { /* localStorage can be unavailable in private mode */ }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#practicePanel">Skip to practice</a>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Word Practice home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" role="img">
+            <path d="M7 19v-6M12 23V9M17 21v-10M22 24V8M27 18v-4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <span class="brand-name">Word Practice</span>
+          <span class="brand-tagline">ESL Pronunciation Coach</span>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <span class="browser-pill" id="browserPill">
+          <span class="browser-dot" aria-hidden="true"></span>
+          <span id="browserPillText">Checking browser support</span>
+        </span>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M12 2.5v2.2M12 19.3v2.2M4.3 4.3l1.6 1.6M18.1 18.1l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.3 19.7l1.6-1.6M18.1 5.9l1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14.4A8.2 8.2 0 0 1 9.6 4a8.2 8.2 0 1 0 10.4 10.4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Speak · Listen · Improve</p>
+          <h1 id="heroTitle">Say it with <em>confidence.</em></h1>
+          <p class="hero-lead">
+            Pick a sound group, tap any word to hear it spoken slowly, then repeat it out loud.
+            Your browser listens and tells you instantly how you did.
+          </p>
+          <ul class="hero-stats" aria-label="At a glance">
+            <li><strong>80</strong><span>practice words</span></li>
+            <li><strong>4</strong><span>sound groups</span></li>
+            <li><strong>0.8×</strong><span>learner pace</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-card" aria-hidden="true">
+          <div class="hero-card-top">
+            <span class="mini-label">Today’s practice</span>
+            <span class="mini-check">
+              <svg viewBox="0 0 20 20" fill="none"><path d="m4.5 10.5 3.4 3.3 7.6-7.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <p class="mini-word">pronunciation</p>
+          <div class="mini-wave">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="mini-footer">
+            <span class="mini-chip">🔊 0.8× speed</span>
+            <span class="mini-chip">🎤 Instant check</span>
+          </div>
+        </div>
+      </section>
+
+      <nav class="tabs" role="tablist" aria-label="Word sound groups">
+        <button class="tab is-active" id="tab-rhymes" role="tab" type="button" aria-selected="true" aria-controls="practicePanel" tabindex="0" data-category="rhymes">
+          <span class="tab-icon" aria-hidden="true">🎵</span>
+          <span class="tab-label">Rhymes</span>
+          <span class="tab-count">20</span>
+        </button>
+        <button class="tab" id="tab-initial" role="tab" type="button" aria-selected="false" aria-controls="practicePanel" tabindex="-1" data-category="initial">
+          <span class="tab-icon" aria-hidden="true">🔤</span>
+          <span class="tab-label">Starting sounds</span>
+          <span class="tab-count">20</span>
+        </button>
+        <button class="tab" id="tab-vowels" role="tab" type="button" aria-selected="false" aria-controls="practicePanel" tabindex="-1" data-category="vowels">
+          <span class="tab-icon" aria-hidden="true">🗣️</span>
+          <span class="tab-label">Vowel sounds</span>
+          <span class="tab-count">20</span>
+        </button>
+        <button class="tab" id="tab-final" role="tab" type="button" aria-selected="false" aria-controls="practicePanel" tabindex="-1" data-category="final">
+          <span class="tab-icon" aria-hidden="true">🧩</span>
+          <span class="tab-label">Ending sounds</span>
+          <span class="tab-count">20</span>
+        </button>
+      </nav>
+
+      <section class="tab-panel" id="practicePanel" role="tabpanel" aria-labelledby="tab-rhymes" tabindex="0">
+        <article class="practice-card" id="practiceCard">
+          <div class="practice-main">
+            <div class="practice-kicker">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Now practicing</span>
+              <span class="kicker-divider" aria-hidden="true"></span>
+              <span id="categoryChip">Rhymes</span>
+              <span class="word-position" id="wordPosition">1 / 20</span>
+            </div>
+
+            <h2 class="practice-word" id="currentWord" lang="en-US">Cat</h2>
+            <p class="practice-hint" id="categoryHint">Listen for the matching end sound — then say it back.</p>
+
+            <div class="actions">
+              <button class="button button-primary" id="listenBtn" type="button" title="Listen to the word (L)">
+                <span class="button-icon" aria-hidden="true">🔊</span>
+                Listen
+              </button>
+              <button class="button button-secondary" id="testBtn" type="button" title="Test your pronunciation (T)">
+                <span class="button-icon" aria-hidden="true">🎤</span>
+                Test pronunciation
+              </button>
+              <button class="button button-ghost" id="nextBtn" type="button" title="Next random word (N)">
+                Next word
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10h11m0 0-4.2-4.2M15 10l-4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="feedback" id="feedback" role="status" aria-live="polite" aria-atomic="true">
+              <span class="feedback-icon" id="feedbackIcon" aria-hidden="true">💡</span>
+              <span class="feedback-copy">
+                <strong id="feedbackTitle">Tap Listen to hear the word</strong>
+                <span id="feedbackText">Then repeat it out loud and test your pronunciation.</span>
+              </span>
+            </div>
+
+            <div class="score-strip">
+              <div class="score">
+                <strong id="correctCount">0</strong>
+                <span>Correct</span>
+              </div>
+              <div class="score">
+                <strong id="attemptCount">0</strong>
+                <span>Tries</span>
+              </div>
+              <div class="score">
+                <strong id="streakCount">0</strong>
+                <span>Streak</span>
+              </div>
+              <button class="reset-button" id="resetStats" type="button">Reset stats</button>
+            </div>
+          </div>
+
+          <aside class="practice-visual" aria-hidden="true">
+            <div class="visual-badge">Live audio</div>
+            <div class="orb-stage">
+              <span class="orb-halo"></span>
+              <span class="orb-ring orb-ring-one"></span>
+              <span class="orb-ring orb-ring-two"></span>
+              <span class="orb" id="soundOrb">
+                <span class="equalizer">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </span>
+            </div>
+            <p class="orb-caption" id="orbCaption">Ready when you are</p>
+            <div class="visual-meta">
+              <span class="meta-chip">0.8× speed</span>
+              <span class="meta-chip">US English</span>
+            </div>
+          </aside>
+        </article>
+
+        <section class="word-bank" aria-labelledby="wordBankTitle">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Word bank</p>
+              <h3 id="wordBankTitle">Choose a word to practice</h3>
+            </div>
+            <button class="shuffle-button" id="shuffleBtn" type="button">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M3 6h2.2c4.6 0 5 8 9.6 8H17M14.8 11.8 17 14l-2.2 2.2M3 14h2.2c1.5 0 2.6-.9 3.6-2M10.8 8.2c.8-.9 1.9-2.2 4-2.2H17M14.8 3.8 17 6l-2.2 2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Surprise me
+            </button>
+          </div>
+
+          <div class="word-grid" id="wordGrid" aria-label="Words in this sound group"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built with <a href="https://opencode.ai" target="_blank" rel="noopener noreferrer">OpenCode</a> and <strong>DeepSeek V4.1 Flash</strong>.</p>
+      <p class="footer-note">Microphone practice works best in Chrome, Edge, or Safari over HTTPS. This app never records or stores your voice.</p>
+    </footer>
+  </div>
+
+  <noscript>
+    <div class="noscript">Word Practice needs JavaScript for audio and microphone practice. Please enable it to continue.</div>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>
