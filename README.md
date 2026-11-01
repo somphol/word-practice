@@ -1,10 +1,21 @@
-# Word Practice — ESL Pronunciation Coach
+<div align="center">
 
-A friendly, browser-native pronunciation coach for English learners. Pick a sound group, tap a word to hear it spoken slowly, then repeat it out loud and get instant feedback from your microphone.
+<img src="docs/social-card.png" alt="Word Practice — ESL Pronunciation Coach" width="100%" />
 
-**Live demo:** <https://somphol.github.io/word-practice/>
+# Word Practice
 
-![Word Practice screenshot](screenshot.png)
+**ESL Pronunciation Coach**
+
+Pick a sound group, hear a word spoken slowly, say it out loud, and get instant feedback from your microphone.
+
+[![Live demo](https://img.shields.io/badge/live_demo-online-6366f1?style=flat-square)](https://somphol.github.io/word-practice/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-6366f1?style=flat-square)](LICENSE)
+
+**[Try it live →](https://somphol.github.io/word-practice/)**
+
+</div>
+
+---
 
 ## Features
 
