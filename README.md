@@ -94,6 +94,27 @@ This project was generated in a single agent session. See [STATE.md](STATE.md) f
 
 Built with [OpenCode](https://opencode.ai) and **DeepSeek V4.1 Flash**.
 
+## Contributing
+
+Contributions are welcome — bug reports, feature ideas, accessibility improvements, and
+documentation fixes alike. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and the
+[Code of Conduct](CODE_OF_CONDUCT.md) before opening a pull request.
+
+- **Found a bug?** [Open a bug report](https://github.com/somphol/word-practice/issues/new?template=bug_report.yml)
+- **Have an idea?** [Request a feature](https://github.com/somphol/word-practice/issues/new?template=feature_request.yml)
+- **Found a vulnerability?** Please follow [SECURITY.md](SECURITY.md) and report it privately.
+
+## Documentation
+
+| Document | Purpose |
+| --- | --- |
+| [README.md](README.md) | Overview, setup, controls, and architecture |
+| [CHANGELOG.md](CHANGELOG.md) | Notable changes and release history |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Local workflow, constraints, and pull request checks |
+| [SECURITY.md](SECURITY.md) | Supported versions and private vulnerability reporting |
+| [STATE.md](STATE.md) | Build timing, verification record, and token usage |
+| [LICENSE](LICENSE) | MIT licence |
+
 ## License
 
 [MIT](LICENSE) © 2026 Somphol Boonjing
